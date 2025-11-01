@@ -1,0 +1,17 @@
+{
+  "name": "listempo",
+  "version": "1.0.0",
+  "description": "Todo Lists On a Schedule",
+  "main": "index.html",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": ["todo", "task", "recurring", "schedule"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
