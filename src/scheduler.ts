@@ -2,6 +2,7 @@
 
 import { Task, RecurringTemplate } from './types.js';
 import { Storage } from './storage.js';
+import { Notifications } from './notifications.js';
 
 export class Scheduler {
     /**
@@ -78,6 +79,9 @@ export class Scheduler {
         };
 
         Storage.addTask(task);
+
+        // Show notification for auto-generated task
+        Notifications.showTaskAdded(task.title, task.description, true);
 
         // Update last generated date
         Storage.updateRecurringTemplate(template.id, {
