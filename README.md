@@ -112,6 +112,37 @@ listempo/
 └── tsconfig.json       # TypeScript configuration
 ```
 
+## Deployment
+
+This project is configured for automatic deployment to GitHub Pages.
+
+### Automatic Deployment
+
+When you push to the `main` branch, a GitHub Actions workflow automatically:
+1. Builds the TypeScript code
+2. Deploys the app to GitHub Pages
+
+### Enabling GitHub Pages
+
+To enable GitHub Pages for your repository:
+1. Go to your repository settings on GitHub
+2. Navigate to "Pages" in the left sidebar
+3. Under "Build and deployment", set:
+   - **Source**: GitHub Actions
+4. After the first workflow runs, your app will be available at: `https://[username].github.io/[repository-name]/`
+
+### Manual Local Deployment
+
+To deploy manually or test the build:
+
+```bash
+# Build the project
+npm run build
+
+# The app is ready to deploy - upload the entire directory
+# (including index.html, styles.css, dist/, etc.) to any static host
+```
+
 ## License
 
 See LICENSE file for details.
