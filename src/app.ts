@@ -3,6 +3,7 @@
 import { Task, RecurringTemplate } from './types.js';
 import { Storage } from './storage.js';
 import { Scheduler } from './scheduler.js';
+import { Notifications } from './notifications.js';
 
 class App {
     private currentTaskFilter: 'all' | 'active' | 'completed' = 'all';
@@ -12,6 +13,9 @@ class App {
     }
 
     private init(): void {
+        // Request notification permission
+        Notifications.requestPermission();
+
         // Run scheduler on app load
         Scheduler.checkAndGenerateTasks();
 
@@ -80,6 +84,9 @@ class App {
 
         Storage.addTask(task);
         this.renderTasks();
+
+        // Show notification
+        Notifications.showTaskAdded(task.title, task.description, false);
 
         // Reset form
         titleInput.value = '';
